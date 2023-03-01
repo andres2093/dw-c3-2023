@@ -1,9 +1,17 @@
+import java.util.EmptyStackException;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Application {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        Stack<Command> stack = new Stack<>();
+
+        Command add10Command = new Add10Command();
+        Command multiplyBy2Command = new MultiplyBy2Command();
+        Command incrementCommand = new IncrementCommand();
 
         int counter = 0;
 
@@ -22,16 +30,26 @@ public class Application {
 
             switch (option) {
                 case 1:
-                    counter += 1;
+                    counter = incrementCommand.execute(counter);
+                    stack.add(incrementCommand);
                     break;
                 case 2:
-                    counter *= 2;
+                    counter = multiplyBy2Command.execute(counter);
+                    stack.add(multiplyBy2Command);
                     break;
                 case 3:
-                    counter += 10;
+                    counter = add10Command.execute(counter);
+                    stack.add(add10Command);
                     break;
                 case 4:
-                    // No implementado...
+                    try {
+                        Command undo = stack.pop();
+                        if (undo != null) {
+                            counter = undo.unexecute(counter);
+                        }
+                    } catch (EmptyStackException e) {
+                        System.out.println("No hay más operaciones por deshacer");
+                    }
                     break;
             }
         }
