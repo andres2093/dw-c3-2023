@@ -13,3 +13,6 @@ gradle clean build
 ### Ejecutar desde jar
 java -jar build/libs/sesion-4-0.0.1-SNAPSHOT.jar 
 
+### Ejecutar jar en otro puerto
+gradle bootRun --args='--server.port=8888'
+
