@@ -4,6 +4,8 @@ public class Saludo {
     private String mensaje;
     private String nombre;
 
+    private int edad;
+
     public String getMensaje() {
         return mensaje;
     }
@@ -18,5 +20,13 @@ public class Saludo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 }
