@@ -1,10 +1,13 @@
 package org.bedu.java.backed.sesion4.model;
 
+import java.time.LocalDate;
+
 public class Saludo {
     private String mensaje;
     private String nombre;
 
     private int edad;
+    private LocalDate fechaNacimiento;
 
     public String getMensaje() {
         return mensaje;
@@ -28,5 +31,13 @@ public class Saludo {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }

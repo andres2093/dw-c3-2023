@@ -25,4 +25,15 @@ public class SaludoController {
     public Saludo saludaPost(@RequestBody Saludo saludo){
         return saludo;
     }
+
+    @PutMapping("/saludo")
+    public Saludo saludaPut(@RequestBody Saludo saludo){
+        saludo.setFechaNacimiento(saludo.getFechaNacimiento().plusDays(1));
+        return saludo;
+    }
+
+    @DeleteMapping("/saludo/{id}")
+    public String saludaDel(@PathVariable int id){
+        return id + " eliminado!!!";
+    }
 }
