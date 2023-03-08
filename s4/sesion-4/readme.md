@@ -16,3 +16,5 @@ java -jar build/libs/sesion-4-0.0.1-SNAPSHOT.jar
 ### Ejecutar jar en otro puerto
 gradle bootRun --args='--server.port=8888'
 
+### Consultar WS saludo
+http://localhost:8080/saludo
