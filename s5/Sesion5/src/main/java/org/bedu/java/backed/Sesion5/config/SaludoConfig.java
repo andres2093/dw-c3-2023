@@ -9,6 +9,6 @@ public class SaludoConfig {
 
     @Bean
     public Saludo saludo(){
-        return new Saludo("Beto");
+        return new Saludo("Ejemplo 01: Beto");
     }
 }
