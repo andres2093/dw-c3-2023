@@ -7,6 +7,16 @@ public class Usuario {
     private String correoElectronico;
     private String password;
 
+    private Direccion direccion;
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
     public String getNombre() {
         return nombre;
     }

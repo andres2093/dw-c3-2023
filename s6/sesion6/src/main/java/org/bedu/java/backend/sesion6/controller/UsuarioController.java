@@ -1,6 +1,9 @@
 package org.bedu.java.backend.sesion6.controller;
 
+import org.bedu.java.backend.sesion6.model.Direccion;
 import org.bedu.java.backend.sesion6.model.Usuario;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -8,14 +11,21 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     @PostMapping
-    public String creaUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> creaUsuario(@RequestBody Usuario usuario){
         System.out.println("creaUsuario");
         System.out.println("Nombre: " + usuario.getNombre());
         System.out.println("Apellido: " + usuario.getApellido());
         System.out.println("Correo: " + usuario.getCorreoElectronico());
         System.out.println("Contraseña: " + usuario.getPassword());
 
-        return "Usuario creado!!!";
+        Direccion direccion = new Direccion();
+        direccion.setCalle("Córdoba");
+        direccion.setNumero("56");
+        direccion.setCodigoPostal("06700");
+
+        usuario.setDireccion(direccion);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
     @PostMapping("/{id}")
