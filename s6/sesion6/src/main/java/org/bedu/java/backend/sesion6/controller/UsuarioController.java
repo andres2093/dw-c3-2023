@@ -25,7 +25,7 @@ public class UsuarioController {
 
         usuario.setDireccion(direccion);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).eTag("BETO").body(usuario);
     }
 
     @PostMapping("/{id}")
