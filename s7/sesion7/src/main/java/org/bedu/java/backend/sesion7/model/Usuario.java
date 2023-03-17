@@ -6,17 +6,17 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
-    @NotBlank(message = ": El nombre de usuario es obligatorio.")
+    @NotBlank(message = "El nombre de usuario es obligatorio.")
     private String nombre;
-    @Email(regexp = ".+@.+\\..+", message = ": El correo electrónico tiene un formato incorrecto.")
+    @Email(regexp = ".+@.+\\..+", message = "El correo electrónico tiene un formato incorrecto.")
     private String email;
-    @Size(min = 8, max = 20, message = ": El username debe tener entre 8 y 20 caracteres.")
+    @Size(min = 8, max = 20, message = "El username debe tener entre 8 y 20 caracteres.")
     private String username;
     @NotBlank(message = "El rol del usuario es un campo obligatorio.")
     private String rol;
-    @NotBlank(message = ": La contraseña es un campo obligatorio")
+    @NotBlank(message = "La contraseña es un campo obligatorio")
     private String password;
-    @Pattern(regexp = "^(\\d{2,4}[- .]?){2}\\d{4}$", message = ": El teléfono debe tener un formato de ##-####-####")
+    @Pattern(regexp = "^(\\d{2,4}[- .]?){2}\\d{4}$", message = "El teléfono debe tener un formato de ##-####-####")
     private String telefono;
 
     public String getEmail() {
