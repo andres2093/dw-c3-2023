@@ -14,6 +14,8 @@ public class EtapasVentaRunner implements CommandLineRunner {
 
     private final EtapaRepository etapaRepository;
 
+    private static final boolean createCatalogs = false;
+
     @Autowired
     public EtapasVentaRunner(EtapaRepository etapaRepository) {
         this.etapaRepository = etapaRepository;
@@ -29,7 +31,16 @@ public class EtapasVentaRunner implements CommandLineRunner {
         etapas.add(crearEtapa("5", 5));
         etapas.add(crearEtapa("6", 6));
 
-        etapaRepository.saveAll(etapas);
+        try {
+            if (createCatalogs) {
+                etapaRepository.saveAll(etapas);
+            }
+        } catch (Exception e){
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println("Catalogo creado!!!");
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>");
+        }
+
     }
 
     private Etapa crearEtapa(String nombre, Integer orden){
