@@ -37,3 +37,13 @@ describe cliente;
 ```sql
 select * from cliente;
 ```
+
+### Consultar registro de la tabla con id especifico
+```sql
+select * from cliente where id = 1;
+```
+
+### Eliminar registro de la tabla con id especifico
+```sql
+delete from cliente where id = 1;
+```
