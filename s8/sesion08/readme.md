@@ -1,3 +1,8 @@
+### Conectar a base de datos desde la terminal
+```shell
+mysql -u root -p
+```
+
 ### Crear base de datos
 ```sql
 create database bedu;
