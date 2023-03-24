@@ -15,6 +15,12 @@ public class SaludoController {
         return mav;
     }
 
+    @GetMapping("/adios")
+    public void adios(){
+        System.out.println("Adios");
+    }
+
+
     @GetMapping("/holaParam")
     public ModelAndView holaParam(@RequestParam(name = "mensaje") String mensaje){
         ModelAndView mav = new ModelAndView("hola");
