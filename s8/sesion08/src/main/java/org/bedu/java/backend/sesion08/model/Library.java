@@ -3,6 +3,7 @@ package org.bedu.java.backend.sesion08.model;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Library {
@@ -17,6 +18,9 @@ public class Library {
     @JoinColumn(name = "address_id")
     @RestResource(path = "libraryAddress", rel="address")
     private Address address;
+
+    @OneToMany(mappedBy = "library")
+    private List<Book> books;
 
     public long getId() {
         return id;
@@ -40,5 +44,13 @@ public class Library {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
